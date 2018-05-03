@@ -1,6 +1,6 @@
 FROM linuxserver/letsencrypt
 
-RUN	apk add  \
+RUN apk add \
     php7-pdo_pgsql \
     php7-pgsql \
     php7-ldap \
