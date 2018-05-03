@@ -1,12 +1,16 @@
 FROM linuxserver/letsencrypt
 
-RUN apk add \
+WORKDIR /
+
+RUN apk --update add \
     php7-pdo_pgsql \
     php7-pgsql \
     php7-ldap \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} && \
+    openssl \
+    nodejs=8.9.3-r1
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer && \
-    nodejs=8.11.1-r2 \
     rm -rf /var/cache/apk/*
 
-WORKDIR /config/www/
+VOLUME /config/www
