@@ -11,5 +11,3 @@ RUN apk --update add \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer && \
     rm -rf /var/cache/apk/*
-
-VOLUME /config/www
